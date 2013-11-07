@@ -67,6 +67,8 @@ public class TerrainManager : MonoBehaviour {
     }
 
     void GenerateChunksAroundCamera() {
+        // Albeit it a bit ugly (very ugly), this loop goes from -6 to +6 chunks around the camera. 
+        // So, the raycasts are relative to the camera's position.
         for( int x = -6 + Mathf.FloorToInt( cameraPosition.position.x / 400 ); x < 6 + Mathf.FloorToInt( cameraPosition.position.x / 400 ); x++ ) {
             for( int y = -6 + Mathf.FloorToInt( cameraPosition.position.z / 400 ); y < 6 + Mathf.FloorToInt( cameraPosition.position.z / 400 ); y++ ) {
                 FindTerrainUnder( new Vector3( cameraPosition.position.x + x * 400, cameraPosition.position.y, cameraPosition.position.z + y * 400 ), x, y ); 
