@@ -11,11 +11,11 @@ public class Tree : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+	
         // Raycast to see if we aren't colliding with a ground piece. I only want to place
         // trees on grassy areas. If it hits a mountainous area, it won't spawn.
         // TODO: "chunk(Clone")" is a bad name to determine mountainous areas. Hardcoded and should definitely
-        // have a different name. 
+        // be done differently. Tag compares are pretty slow. Any other way?
         RaycastHit hit;
         if( Physics.Raycast( transform.position, -Vector3.up, out hit, 1 << 8 ) )
         {
